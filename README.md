@@ -1,4 +1,4 @@
-# React + TypeScript + Vite
+main.tsx:1  Failed to load resource: the server responded with a status of 404 ()# React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
