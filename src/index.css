@@ -79,8 +79,6 @@ a {
 
 .main {
   width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
   position: relative;
   background: #fff;
   overflow: hidden;
@@ -110,7 +108,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 50px;
+  padding: 0 max(50px, calc(50vw - 670px));
   z-index: 10;
   background: transparent;
 }
@@ -169,7 +167,7 @@ a {
 .catalog {
   position: relative;
   width: 100%;
-  padding: 40px 50px 80px;
+  padding: 40px max(50px, calc(50vw - 670px)) 80px;
   background: #FFFFFF;
 }
 
@@ -333,7 +331,7 @@ a {
 .topics {
   position: relative;
   width: 100%;
-  padding: 80px 50px;
+  padding: 80px max(50px, calc(50vw - 670px));
   text-align: center;
 }
 
@@ -446,7 +444,7 @@ a {
 .how-it-works {
   position: relative;
   width: 100%;
-  padding: 60px 40px;
+  padding: 60px max(40px, calc(50vw - 680px));
 }
 
 .how-title {
@@ -661,7 +659,7 @@ a {
 .reviews {
   position: relative;
   width: 100%;
-  padding: 80px 50px;
+  padding: 80px max(50px, calc(50vw - 670px));
 }
 
 .reviews-title {
@@ -760,7 +758,7 @@ a {
 
 .footer-content {
   display: flex;
-  padding: 33px 50px;
+  padding: 33px max(50px, calc(50vw - 670px));
   gap: 80px;
   flex-wrap: wrap;
 }
