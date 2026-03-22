@@ -1,6 +1,7 @@
 import React from 'react';
+import logo from '../assets/logo.png';
 
-const Navbar: React.FC = () => {
+export const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
       <div className="burger">
@@ -9,7 +10,7 @@ const Navbar: React.FC = () => {
         <span></span>
       </div>
       <div className="logo">
-        <img src="/logo.png" alt="РЕВЬЮ" />
+        <img src={logo} alt="РЕВЬЮ" />
       </div>
       <div className="nav-icons">
         <div className="nav-icon icon-grid">

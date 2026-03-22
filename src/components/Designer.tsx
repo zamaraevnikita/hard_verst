@@ -1,10 +1,11 @@
 import React from 'react';
+import heroBg from '../assets/hero.jpg';
 
-const Designer: React.FC = () => {
+export const Designer: React.FC = () => {
   return (
     <section className="designer">
       {/* Background with inline style to fetch from public folder */}
-      <div className="designer-bg" style={{ backgroundImage: 'url(/hero.jpg)' }}></div>
+      <div className="designer-bg" style={{ backgroundImage: `url(${heroBg})` }}></div>
       <div className="designer-overlay"></div>
       
       <div className="designer-content">

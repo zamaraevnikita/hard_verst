@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: 'Syncopate';
-  src: url('Syncopate-Regular.ttf') format('truetype');
+  src: url('./assets/Syncopate-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   unicode-range: U+0000-024F;
@@ -17,14 +17,14 @@
 
 @font-face {
   font-family: 'Syncopate';
-  src: url('Syncopate Bold Cyr.otf') format('opentype');
+  src: url('./assets/Syncopate Bold Cyr.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Syncopate';
-  src: url('Syncopate Bold Cyr.otf') format('opentype');
+  src: url('./assets/Syncopate Bold Cyr.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   unicode-range: U+0400-04FF, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
@@ -32,35 +32,35 @@
 
 @font-face {
   font-family: 'Astrum Cyrillic';
-  src: url('AstrumScriptCyrillic_Regular.ttf') format('truetype');
+  src: url('./assets/AstrumScriptCyrillic_Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Astrum Cyrillic';
-  src: url('AstrumScriptCyrillic_Bold.ttf') format('truetype');
+  src: url('./assets/AstrumScriptCyrillic_Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Astrum Cyrillic';
-  src: url('AstrumScriptCyrillic_Light.ttf') format('truetype');
+  src: url('./assets/AstrumScriptCyrillic_Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Inter';
-  src: url('Inter-VariableFont_opsz,wght.ttf') format('truetype');
+  src: url('./assets/Inter-VariableFont_opsz,wght.ttf') format('truetype');
   font-weight: 100 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Inter';
-  src: url('Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+  src: url('./assets/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype');
   font-weight: 100 900;
   font-style: italic;
 }
@@ -98,7 +98,7 @@ a {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url('hero.jpg') center/cover no-repeat;
+  background: url('./assets/hero.jpg') center/cover no-repeat;
 }
 
 .navbar {
@@ -565,7 +565,7 @@ a {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url('hero.jpg') center/cover no-repeat;
+  background: url('./assets/hero.jpg') center/cover no-repeat;
   z-index: 0;
 }
 
