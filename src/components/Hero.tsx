@@ -14,7 +14,7 @@ const Hero: FC = () => {
         className="absolute inset-0 w-full h-full bg-center bg-cover bg-no-repeat z-0"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
-      <Navbar />
+      <Navbar scrollAware />
     </section>
   );
 };

@@ -23,22 +23,22 @@ const Footer: FC = () => {
           {/* Column 1 — 5 links */}
           <div className="flex flex-col" style={{ gap: 'clamp(10px, 0.972vw, 19px)' }}>
             <Link to="/about" className={linkClass} style={linkStyle}>О нас</Link>
-            <a href="#delivery" className={linkClass} style={linkStyle}>Доставка</a>
-            <a href="#catalog" className={linkClass} style={linkStyle}>Печать</a>
-            <a href="#faq" className={linkClass} style={linkStyle}>Частые вопросы</a>
-            <a href="#contacts-info" className={linkClass} style={linkStyle}>Контакты</a>
+            <Link to="/#delivery" className={linkClass} style={linkStyle}>Доставка</Link>
+            <Link to="/#catalog" className={linkClass} style={linkStyle}>Печать</Link>
+            <Link to="/#faq" className={linkClass} style={linkStyle}>Частые вопросы</Link>
+            <Link to="/#contacts-info" className={linkClass} style={linkStyle}>Контакты</Link>
           </div>
 
           {/* Column 2 — 2 links */}
           <div className="flex flex-col" style={{ gap: 'clamp(10px, 0.972vw, 19px)' }}>
-            <a href="#catalog" className={linkClass} style={linkStyle}>Конструктор</a>
+            <Link to="/#catalog" className={linkClass} style={linkStyle}>Конструктор</Link>
             <Link to="/designer-service" className={linkClass} style={linkStyle}>Соберем журнал за вас</Link>
           </div>
 
           {/* Column 3 — 2 links */}
           <div className="flex flex-col" style={{ gap: 'clamp(10px, 0.972vw, 19px)' }}>
-            <a href="#offer" className={linkClass} style={linkStyle}>Договор оферты</a>
-            <a href="#privacy" className={linkClass} style={linkStyle}>Политика конфиденциальности</a>
+            <Link to="/#offer" className={linkClass} style={linkStyle}>Договор оферты</Link>
+            <Link to="/#privacy" className={linkClass} style={linkStyle}>Политика конфиденциальности</Link>
           </div>
         </div>
 
