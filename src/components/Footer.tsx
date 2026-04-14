@@ -2,7 +2,7 @@ import { type FC } from 'react';
 import { Link } from 'react-router-dom';
 
 const linkClass =
-  "font-['Helvetica'] font-normal text-black no-underline hover:underline";
+  "font-helvetica font-normal text-black no-underline hover:underline";
 
 const linkStyle = { fontSize: 'clamp(14px, 0.972vw, 19px)', lineHeight: '1.15' } as const;
 
@@ -25,8 +25,8 @@ const Footer: FC = () => {
             <Link to="/about" className={linkClass} style={linkStyle}>О нас</Link>
             <Link to="/#delivery" className={linkClass} style={linkStyle}>Доставка</Link>
             <Link to="/#catalog" className={linkClass} style={linkStyle}>Печать</Link>
-            <Link to="/#faq" className={linkClass} style={linkStyle}>Частые вопросы</Link>
-            <Link to="/#contacts-info" className={linkClass} style={linkStyle}>Контакты</Link>
+            <Link to="/#reviews" className={linkClass} style={linkStyle}>Частые вопросы</Link>
+            <Link to="/#contacts" className={linkClass} style={linkStyle}>Контакты</Link>
           </div>
 
           {/* Column 2 — 2 links */}
@@ -37,8 +37,8 @@ const Footer: FC = () => {
 
           {/* Column 3 — 2 links */}
           <div className="flex flex-col" style={{ gap: 'clamp(10px, 0.972vw, 19px)' }}>
-            <Link to="/#offer" className={linkClass} style={linkStyle}>Договор оферты</Link>
-            <Link to="/#privacy" className={linkClass} style={linkStyle}>Политика конфиденциальности</Link>
+            <Link to="/about" className={linkClass} style={linkStyle}>Договор оферты</Link>
+            <Link to="/about" className={linkClass} style={linkStyle}>Политика конфиденциальности</Link>
           </div>
         </div>
 
@@ -52,7 +52,7 @@ const Footer: FC = () => {
         >
           <a
             href="#vk"
-            className="flex items-center justify-center no-underline font-['Helvetica'] font-normal text-black border border-black hover:bg-black hover:text-white transition-colors"
+            className="flex items-center justify-center no-underline font-helvetica font-normal text-black border border-black hover:bg-black hover:text-white transition-colors"
             style={{
               width: 'clamp(32px, 2.917vw, 56px)',
               height: 'clamp(32px, 2.917vw, 56px)',
@@ -64,7 +64,7 @@ const Footer: FC = () => {
           </a>
           <a
             href="#telegram"
-            className="flex items-center justify-center no-underline font-['Helvetica'] font-normal text-black border border-black hover:bg-black hover:text-white transition-colors"
+            className="flex items-center justify-center no-underline font-helvetica font-normal text-black border border-black hover:bg-black hover:text-white transition-colors"
             style={{
               width: 'clamp(32px, 2.917vw, 56px)',
               height: 'clamp(32px, 2.917vw, 56px)',

@@ -1,5 +1,6 @@
 import { type FC } from 'react';
 import heroBg from '../assets/hero.jpg';
+import ActionButton from './ui/ActionButton';
 
 export const Designer: FC = () => {
   return (
@@ -34,9 +35,9 @@ export const Designer: FC = () => {
       </p>
 
       {/* Button — absolute at 51.2% from top (340/664) */}
-      <button
-        type="button"
-        className="absolute left-1/2 -translate-x-1/2 z-[2] flex flex-row justify-center items-center bg-transparent border border-white font-inter font-normal text-white cursor-pointer"
+      <ActionButton
+        variant="ghost"
+        className="absolute left-1/2 -translate-x-1/2 z-[2] font-inter"
         style={{
           top: '51.2%',
           padding: 'clamp(5px, 0.486vw, 9px) clamp(14px, 1.25vw, 24px)',
@@ -46,7 +47,7 @@ export const Designer: FC = () => {
         }}
       >
         Перейти в конструктор
-      </button>
+      </ActionButton>
 
       {/* Large title at bottom */}
       <h2

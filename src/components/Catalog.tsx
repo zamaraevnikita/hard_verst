@@ -1,5 +1,6 @@
 import { type FC } from 'react';
-import { Link } from 'react-router-dom';
+import SectionTitle from './ui/SectionTitle';
+import ActionButton from './ui/ActionButton';
 
 const products = [
   { id: 1, name: 'Название', pages: '20/24/28/32 страниц', price: 'от 2000р.' },
@@ -42,9 +43,13 @@ const Catalog: FC = () => {
         <span className="font-sans font-normal leading-[1.17] text-[#737373] text-left whitespace-nowrap" style={{ fontSize: 'clamp(10px, 0.83vw, 16px)' }}>
           КОНСТРУКТОР&nbsp;&nbsp;ГЛЯНЦА
         </span>
-        <h2 className="font-syncopate font-normal leading-[0.9] text-black tracking-[2px] text-center" style={{ fontSize: 'clamp(18px, 1.94vw, 37px)' }}>
+        <SectionTitle
+          align="center"
+          className="tracking-[2px]"
+          style={{ fontSize: 'clamp(18px, 1.94vw, 37px)' }}
+        >
           ВЫБЕРИ ОСНОВУ
-        </h2>
+        </SectionTitle>
         <span className="font-sans font-normal leading-[1.17] text-[#737373] text-right whitespace-nowrap" style={{ fontSize: 'clamp(10px, 0.83vw, 16px)' }}>
           СОБЕРИ СВОЙ ЖУРНАЛ
         </span>
@@ -87,20 +92,20 @@ const Catalog: FC = () => {
 
               {/* Кнопки */}
               <div className="flex justify-center" style={{ gap: 'clamp(16px, 2.22vw, 43px)' }}>
-                <Link
-                  to={`/product/${product.id}`}
-                  className="border border-black bg-white text-black cursor-pointer font-sans font-normal leading-[1.1] text-center flex items-center justify-center transition-opacity hover:bg-gray-100"
-                  style={{ padding: 'clamp(4px, 0.42vw, 8px) clamp(16px, 1.6vw, 31px)', fontSize: 'clamp(8px, 0.69vw, 13px)' }}
+                <ActionButton
+                  href={`/product/${product.id}`}
+                  className="font-sans"
+                  style={{ padding: 'clamp(4px, 0.42vw, 8px) clamp(16px, 1.6vw, 31px)', fontSize: 'clamp(8px, 0.69vw, 13px)', lineHeight: '1.1' }}
                 >
                   Подробнее
-                </Link>
-                <button
-                  type="button"
-                  className="border-none bg-black text-white cursor-pointer font-sans font-normal leading-[1.1] text-center"
-                  style={{ padding: 'clamp(4px, 0.42vw, 8px) clamp(16px, 1.6vw, 31px)', fontSize: 'clamp(8px, 0.69vw, 13px)' }}
+                </ActionButton>
+                <ActionButton
+                  variant="filled"
+                  className="font-sans"
+                  style={{ padding: 'clamp(4px, 0.42vw, 8px) clamp(16px, 1.6vw, 31px)', fontSize: 'clamp(8px, 0.69vw, 13px)', lineHeight: '1.1' }}
                 >
                   Собрать
-                </button>
+                </ActionButton>
               </div>
             </div>
           </div>

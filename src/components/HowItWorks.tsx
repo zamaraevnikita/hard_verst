@@ -1,4 +1,5 @@
 import { type FC } from 'react';
+import SectionTitle from './ui/SectionTitle';
 
 /*
   Figma @ 1440px (section 1441×718):
@@ -83,16 +84,15 @@ const HowItWorks: FC = () => {
     >
       <div className="page-container relative">
         {/* ─── Заголовок ─── */}
-      <h2
-        className="font-syncopate font-bold text-black text-left"
+      <SectionTitle
+        weight="bold"
         style={{
           fontSize: 'clamp(20px, 1.94vw, 37px)',
-          lineHeight: '0.9',
           marginBottom: 'clamp(30px, 3.47vw, 67px)',
         }}
       >
         КАК ЭТО РАБОТАЕТ?
-      </h2>
+      </SectionTitle>
 
       {/* ─── Контент: левая колонка + правая картинка ─── */}
       <div
@@ -170,7 +170,7 @@ const HowItWorks: FC = () => {
           }}
         >
           <div
-            className="absolute bottom-0 left-0 right-0 bg-[#D9D9D9]"
+            className="absolute bottom-0 left-0 right-0 bg-placeholder"
             style={{
               aspectRatio: '684 / 437',
             }}

@@ -1,7 +1,10 @@
 import { type FC, useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Navbar } from '../components/Navbar';
-import Footer from '../components/Footer';
+import PageLayout from '../components/layout/PageLayout';
+import CarouselArrow from '../components/ui/CarouselArrow';
+import SectionTitle from '../components/ui/SectionTitle';
+import ActionButton from '../components/ui/ActionButton';
+import ToggleButtonGroup from '../components/ui/ToggleButtonGroup';
 import yandexLogo from '../assets/yandex.png';
 import sdekLogo from '../assets/sdek.png';
 
@@ -22,10 +25,12 @@ const ProductPage: FC = () => {
   const pageOptions = [16, 20, 24, 28, 32];
 
   return (
-    <div className="min-h-screen relative bg-white overflow-x-hidden">
-      <Navbar variant="light" />
-
-      <main className="flex flex-col w-full mx-auto page-container font-['Inter'] relative text-black items-center self-center">
+    <PageLayout
+      className="overflow-x-hidden"
+      navSpacer={false}
+      mainClassName="flex flex-col w-full mx-auto font-inter relative text-black items-center self-center"
+    >
+      <div>
         
         {/* TOP SECTION: Left (Details) + Right (Image) */}
         <section 
@@ -44,7 +49,7 @@ const ProductPage: FC = () => {
           >
             {/* Title block */}
             <h1 
-              className="font-['Syncopate'] uppercase"
+              className="font-syncopate uppercase"
               style={{
                 fontWeight: 400,
                 fontSize: 'clamp(14px, 1.389vw, 27px)',
@@ -62,24 +67,11 @@ const ProductPage: FC = () => {
                 <p style={{ fontSize: 'clamp(10px, 0.903vw, 17px)', color: '#000', marginBottom: 'clamp(8px, 0.556vw, 11px)' }}>
                   Количество страниц
                 </p>
-                {/* Number selector row */}
-                <div className="flex w-full" style={{ gap: 'clamp(10px, 0.694vw, 13px)' }}>
-                  {pageOptions.map(num => (
-                    <button
-                      key={num}
-                      onClick={() => setPagesCount(num)}
-                      className="flex justify-center items-center flex-1 transition-opacity hover:opacity-80"
-                      style={{
-                        backgroundColor: pagesCount === num ? '#F4D9E2' : '#FFFFFF',
-                        border: pagesCount === num ? '1px solid transparent' : '1px solid #000',
-                        height: 'clamp(30px, 2.5vw, 48px)',
-                        fontSize: 'clamp(12px, 1.1vw, 21px)'
-                      }}
-                    >
-                      {num}
-                    </button>
-                  ))}
-                </div>
+                <ToggleButtonGroup
+                  options={pageOptions.map(n => ({ value: n, label: String(n) }))}
+                  value={pagesCount}
+                  onChange={setPagesCount}
+                />
               </div>
                 
               {/* Идеальное кол-во фото */}
@@ -103,34 +95,17 @@ const ProductPage: FC = () => {
                 <p style={{ fontSize: 'clamp(10px, 0.903vw, 17px)', color: '#000', marginBottom: 'clamp(8px, 0.556vw, 11px)' }}>
                   Срок производства без доставки
                 </p>
-                <div className="flex w-full" style={{ gap: 'clamp(10px, 0.694vw, 13px)' }}>
-                  <button
-                    onClick={() => setProdTime('4days')}
-                    className="flex justify-center items-center transition-opacity hover:opacity-80 flex-1"
-                    style={{
-                      maxWidth: 'clamp(100px, 10vw, 192px)',
-                      backgroundColor: prodTime === '4days' ? '#F4D9E2' : '#FFFFFF',
-                      border: prodTime === '4days' ? '1px solid transparent' : '1px solid #000',
-                      height: 'clamp(25px, 2.5vw, 48px)',
-                      fontSize: 'clamp(11px, 1.1vw, 21px)'
-                    }}
-                  >
-                    4 дня
-                  </button>
-                  <button
-                    onClick={() => setProdTime('1day')}
-                    className="flex justify-center items-center transition-opacity hover:opacity-80 flex-1"
-                    style={{
-                      maxWidth: 'clamp(150px, 15vw, 288px)',
-                      backgroundColor: prodTime === '1day' ? '#F4D9E2' : '#FFFFFF',
-                      border: prodTime === '1day' ? '1px solid transparent' : '1px solid #000',
-                      height: 'clamp(25px, 2.5vw, 48px)',
-                      fontSize: 'clamp(11px, 1.1vw, 21px)'
-                    }}
-                  >
-                    1 день (+600р.)
-                  </button>
-                </div>
+                <ToggleButtonGroup
+                  options={[
+                    { value: '4days' as const, label: '4 дня' },
+                    { value: '1day' as const, label: '1 день (+600р.)' },
+                  ]}
+                  value={prodTime}
+                  onChange={setProdTime}
+                  height="clamp(25px, 2.5vw, 48px)"
+                  fontSize="clamp(11px, 1.1vw, 21px)"
+                  buttonStyle={{ maxWidth: 'clamp(150px, 15vw, 288px)' }}
+                />
               </div>
 
               {/* Бумага */}
@@ -152,7 +127,7 @@ const ProductPage: FC = () => {
                 to="#"
                 className="flex flex-col flex-1 justify-center items-center transition-opacity hover:opacity-80 text-center"
                 style={{
-                  backgroundColor: '#383838',
+                  backgroundColor: 'var(--color-dark)',
                   color: '#FFF',
                   height: 'clamp(55px, 4.5vw, 86px)',
                   padding: 'clamp(8px, 0.556vw, 11px) 0',
@@ -175,7 +150,7 @@ const ProductPage: FC = () => {
                 }}
               >
                 <span style={{ fontSize: 'clamp(11px, 1vw, 19px)' }}>Сделать заказ дизайнеру</span>
-                <span style={{ fontSize: 'clamp(8px, 0.7vw, 13px)', color: '#737373' }}>(персональная сборка)</span>
+                <span style={{ fontSize: 'clamp(8px, 0.7vw, 13px)', color: 'var(--color-secondary)' }}>(персональная сборка)</span>
                 <span style={{ fontSize: 'clamp(13px, 1.2vw, 23px)', fontWeight: 'bold' }}>6500 ₽</span>
               </Link>
             </div>
@@ -188,28 +163,22 @@ const ProductPage: FC = () => {
           >
             {/* Gallery Image Box (702x588 in Figma) */}
             <div 
-              className="w-full bg-[#D9D9D9] relative"
+              className="w-full bg-placeholder relative"
               style={{ aspectRatio: '702 / 588' }}
             >
               <div 
                 className="absolute inset-y-0 w-full flex items-center justify-between"
                 style={{ padding: '0 clamp(10px, 1.32vw, 25px)' }}
               >
-                <button className="w-[clamp(25px,3vw,40px)] h-[clamp(25px,3vw,40px)] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform rotate-180 shadow-md rounded-full bg-white">
-                  <svg width="100%" height="100%" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="14.5" cy="14.5" r="14.5" transform="matrix(-1 0 0 1 29 0)" fill="white"/>
-                    <path d="M14.7 19L21 14.5L14.7 10" stroke="black"/>
-                    <path d="M21 14.5H5.7" stroke="black"/>
-                  </svg>
-                </button>
+                <CarouselArrow
+                  direction="left"
+                  size="clamp(25px, 3vw, 40px)"
+                />
                 
-                <button className="w-[clamp(25px,3vw,40px)] h-[clamp(25px,3vw,40px)] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform shadow-md rounded-full bg-white">
-                  <svg width="100%" height="100%" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="14.5" cy="14.5" r="14.5" transform="matrix(-1 0 0 1 29 0)" fill="white"/>
-                    <path d="M14.7 19L21 14.5L14.7 10" stroke="black"/>
-                    <path d="M21 14.5H5.7" stroke="black"/>
-                  </svg>
-                </button>
+                <CarouselArrow
+                  direction="right"
+                  size="clamp(25px, 3vw, 40px)"
+                />
               </div>
             </div>
           </div>
@@ -227,40 +196,33 @@ const ProductPage: FC = () => {
         >
           {/* ── LEFT COLUMN (Delivery Calculator) ── */}
           <div className="flex flex-col w-full">
-            <h3 
-              className="font-['Syncopate'] uppercase w-full"
-              style={{
-                fontSize: 'clamp(11px, 0.972vw, 19px)',
-                marginBottom: 'clamp(15px, 2vw, 38px)'
-              }}
+            <SectionTitle
+              as="h3"
+              size="sm"
+              style={{ marginBottom: 'clamp(15px, 2vw, 38px)' }}
             >
               РАССЧИТАТЬ СРОКИ ДОСТАВКИ
-            </h3>
+            </SectionTitle>
             
             <div 
-              className="flex flex-col justify-between border border-[#989797] h-full"
+              className="flex flex-col justify-between border border-muted h-full"
               style={{ padding: 'clamp(15px, 2vw, 38px)' }}
             >
                {/* Самовывоз / Курьер tabs */}
-               <div className="flex w-full" style={{ gap: 'clamp(10px, 0.694vw, 13px)' }}>
-                 <button 
-                   onClick={() => setDeliveryOption('pickup')}
-                   className={`flex-1 flex justify-center items-center font-['Inter'] border transition-all ${deliveryOption === 'pickup' ? 'bg-[#F4D9E2] border-transparent text-[#111]' : 'bg-white border-[#111] text-[#111]'}`} 
-                   style={{ height: 'clamp(30px, 3vw, 58px)', fontSize: 'clamp(11px, 0.9vw, 17px)' }}
-                 >
-                   Самовывоз
-                 </button>
-                 <button 
-                   onClick={() => {
-                     setDeliveryOption('courier');
-                     setDeliveryType('sdek');
-                   }}
-                   className={`flex-1 flex justify-center items-center font-['Inter'] border transition-all ${deliveryOption === 'courier' ? 'bg-[#F4D9E2] border-transparent text-[#111]' : 'bg-white border-[#111] text-[#111]'}`} 
-                   style={{ height: 'clamp(30px, 3vw, 58px)', fontSize: 'clamp(11px, 0.9vw, 17px)' }}
-                 >
-                   Курьер
-                 </button>
-               </div>
+               <ToggleButtonGroup
+                 options={[
+                   { value: 'pickup' as const, label: 'Самовывоз' },
+                   { value: 'courier' as const, label: 'Курьер' },
+                 ]}
+                 value={deliveryOption}
+                 onChange={(v) => {
+                   setDeliveryOption(v);
+                   if (v === 'courier') setDeliveryType('sdek');
+                 }}
+                 height="clamp(30px, 3vw, 58px)"
+                 fontSize="clamp(11px, 0.9vw, 17px)"
+                 className="font-inter"
+               />
                
                {/* Город */}
                <div className="flex w-full justify-center">
@@ -279,7 +241,7 @@ const ProductPage: FC = () => {
                  {deliveryOption === 'pickup' && (
                    <button 
                      onClick={() => setDeliveryType('yandex')}
-                     className={`flex-1 flex justify-center items-center bg-[#FBFBFB] transition-all hover:scale-[1.02] border-[0.5px] ${deliveryType === 'yandex' ? 'border-[#969696]' : 'border-transparent'}`} 
+                     className={`flex-1 flex justify-center items-center bg-surface transition-all hover:scale-[1.02] border-[0.5px] ${deliveryType === 'yandex' ? 'border-[#969696]' : 'border-transparent'}`} 
                      style={{ height: 'clamp(35px, 3vw, 58px)' }}
                    >
                      <img src={yandexLogo} alt="Яндекс" className="h-[60%] object-contain" />
@@ -287,7 +249,7 @@ const ProductPage: FC = () => {
                  )}
                  <button 
                    onClick={() => setDeliveryType('sdek')}
-                   className={`${deliveryOption === 'courier' ? 'w-[47.24%]' : 'flex-1'} flex justify-center items-center bg-[#FBFBFB] transition-all hover:scale-[1.02] border-[0.5px] ${deliveryType === 'sdek' ? 'border-[#969696]' : 'border-transparent'}`} 
+                   className={`${deliveryOption === 'courier' ? 'w-[47.24%]' : 'flex-1'} flex justify-center items-center bg-surface transition-all hover:scale-[1.02] border-[0.5px] ${deliveryType === 'sdek' ? 'border-[#969696]' : 'border-transparent'}`} 
                    style={{ height: 'clamp(35px, 3vw, 58px)' }}
                  >
                    <img src={sdekLogo} alt="СДЭК" className="h-[40%] object-contain" />
@@ -299,7 +261,7 @@ const ProductPage: FC = () => {
                  <p style={{ fontSize: 'clamp(11px, 0.95vw, 18px)', color: '#000', marginBottom: 'clamp(2px, 0.139vw, 3px)' }}>
                    Доставка до 3х дней
                  </p>
-                 <p style={{ fontSize: 'clamp(9px, 0.77vw, 15px)', color: '#989797', lineHeight: '1.2', marginBottom: 'clamp(10px, 1.5vw, 29px)' }}>
+                 <p style={{ fontSize: 'clamp(9px, 0.77vw, 15px)', color: 'var(--color-muted)', lineHeight: '1.2', marginBottom: 'clamp(10px, 1.5vw, 29px)' }}>
                    Отправляем заказы день в день, либо на следующий
                    <br />
                    день после готовности в печати.
@@ -313,33 +275,34 @@ const ProductPage: FC = () => {
 
           {/* ── RIGHT COLUMN (Print & Delivery Info Box) ── */}
           <div className="flex flex-col w-full h-full">
-            <h3 
-              className="font-['Syncopate'] uppercase w-full"
+            <SectionTitle
+              as="h3"
+              size="sm"
+              className="w-full"
               style={{
-                fontSize: 'clamp(11px, 0.972vw, 19px)',
                 marginBottom: 'clamp(15px, 2vw, 38px)',
-                visibility: 'hidden'
+                visibility: 'hidden',
               }}
             >
               SPACER
-            </h3>
+            </SectionTitle>
             
             <div 
               className="bg-white border flex justify-between items-start h-full w-full relative"
               style={{ 
-                borderColor: '#989797',
+                borderColor: 'var(--color-muted)',
                 padding: 'clamp(20px, 2.5vw, 48px)',
                 gap: 'clamp(15px, 3vw, 58px)'
               }}
             >
               {/* ПЕЧАТЬ */}
               <div className="flex flex-col flex-1 w-1/2" style={{ paddingRight: 'clamp(5px, 1vw, 19px)' }}>
-                <h2 
-                  className="font-['Syncopate'] uppercase"
-                  style={{ fontSize: 'clamp(11px, 0.972vw, 19px)', marginBottom: 'clamp(15px, 1.5vw, 29px)' }}
+                <SectionTitle
+                  size="sm"
+                  style={{ marginBottom: 'clamp(15px, 1.5vw, 29px)' }}
                 >
                   ПЕЧАТЬ
-                </h2>
+                </SectionTitle>
                 <p style={{ fontSize: 'clamp(10px, 0.9vw, 17px)', lineHeight: '1.4' }}>
                   Страницы будут напечатаны на гладкой глянцевой бумаге. Печатаем на профессиональном типографском оборудовании цифровым офсетом. Это позволяет добиться журнального качества. Дополнительно каждая обложка ламинируется глянцевой пленкой для придания блеска. Все журналы скрепляются на скобу. Если хотите оформить заказ на клеевой переплет - обратитесь к менеджеру (заполните заявку на индивидуальный заказ).
                   <br />
@@ -355,12 +318,12 @@ const ProductPage: FC = () => {
 
               {/* ДОСТАВКА */}
               <div className="flex flex-col flex-1 w-1/2" style={{ paddingLeft: 'clamp(5px, 1vw, 19px)' }}>
-                <h2 
-                  className="font-['Syncopate'] uppercase"
-                  style={{ fontSize: 'clamp(11px, 0.972vw, 19px)', marginBottom: 'clamp(15px, 1.5vw, 29px)' }}
+                <SectionTitle
+                  size="sm"
+                  style={{ marginBottom: 'clamp(15px, 1.5vw, 29px)' }}
                 >
                   ДОСТАВКА
-                </h2>
+                </SectionTitle>
                 <div style={{ fontSize: 'clamp(10px, 0.9vw, 17px)', lineHeight: '1.4' }}>
                   <ul style={{ listStyleType: 'disc', paddingLeft: 'clamp(18px, 1.25vw, 24px)', marginBottom: 'clamp(15px, 1.5vw, 29px)' }}>
                     <li>До Москвы 2-3 дня, до Московской области 3-4 дня.</li>
@@ -384,50 +347,52 @@ const ProductPage: FC = () => {
 
         {/* SECTION: FAQ */}
         <section 
+          id="faq"
           className="flex flex-col items-center w-full"
           style={{ 
             marginTop: 'clamp(40px, 5vw, 96px)',
             paddingBottom: 'clamp(120px, 8.333vw, 160px)'
           }}
         >
-          <h2 
-            className="font-['Syncopate'] uppercase text-center"
+          <SectionTitle
+            align="center"
             style={{ 
               fontSize: 'clamp(16px, 1.944vw, 37px)',
               marginBottom: 'clamp(20px, 2.5vw, 48px)' 
             }}
           >
             ОСТАЛИСЬ ВОПРОСЫ?
-          </h2>
+          </SectionTitle>
           
           <div className="flex flex-col" style={{ gap: 'clamp(12px, 1.5vw, 29px)' }}>
-            <Link 
-              to="#" 
-              className="bg-white border border-black flex justify-center items-center transition-all hover:bg-black hover:text-white"
+            <ActionButton
+              href="#"
+              className="font-inter"
               style={{ 
                 width: 'clamp(200px, 20vw, 384px)', 
-                height: 'clamp(35px, 3.5vw, 67px)' 
+                height: 'clamp(35px, 3.5vw, 67px)',
+                fontSize: 'clamp(11px, 0.9vw, 17px)',
               }}
             >
-              <span className="font-['Inter']" style={{ fontSize: 'clamp(11px, 0.9vw, 17px)' }}>Написать в Telegram</span>
-            </Link>
-            <Link 
-              to="#" 
-              className="bg-white border border-black flex justify-center items-center transition-all hover:bg-black hover:text-white"
+              Написать в Telegram
+            </ActionButton>
+            <ActionButton
+              href="#"
+              className="font-inter"
               style={{ 
                 width: 'clamp(200px, 20vw, 384px)', 
-                height: 'clamp(35px, 3.5vw, 67px)' 
+                height: 'clamp(35px, 3.5vw, 67px)',
+                fontSize: 'clamp(11px, 0.9vw, 17px)',
               }}
             >
-              <span className="font-['Inter']" style={{ fontSize: 'clamp(11px, 0.9vw, 17px)' }}>Написать во ВКонтакте</span>
-            </Link>
+              Написать во ВКонтакте
+            </ActionButton>
           </div>
         </section>
 
-      </main>
+      </div>
 
-      <Footer />
-    </div>
+    </PageLayout>
   );
 };
 

@@ -8,7 +8,7 @@ interface NavbarProps {
   scrollAware?: boolean;
 }
 
-export const Navbar: FC<NavbarProps> = ({ variant = 'dark', scrollAware = false }) => {
+const Navbar: FC<NavbarProps> = ({ variant = 'dark', scrollAware = false }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -146,9 +146,9 @@ export const Navbar: FC<NavbarProps> = ({ variant = 'dark', scrollAware = false 
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <line x1="0" y1="4.5" x2="15" y2="4.5" stroke={iconStroke} strokeWidth="1" />
-            <line x1="0" y1="4.5" x2="6.3" y2="0.5" stroke={iconStroke} strokeWidth="1" />
-            <line x1="0" y1="4.5" x2="6.3" y2="8.5" stroke={iconStroke} strokeWidth="1" />
+            <line x1="0" y1="4.5" x2="15" y2="4.5" stroke="black" strokeWidth="1" />
+            <line x1="0" y1="4.5" x2="6.3" y2="0.5" stroke="black" strokeWidth="1" />
+            <line x1="0" y1="4.5" x2="6.3" y2="8.5" stroke="black" strokeWidth="1" />
           </svg>
         </button>
 
@@ -157,20 +157,20 @@ export const Navbar: FC<NavbarProps> = ({ variant = 'dark', scrollAware = false 
           <Link 
             to="/about" 
             onClick={() => setMenuOpen(false)} 
-            className="font-['Helvetica'] font-normal text-black no-underline hover:underline" 
+            className="font-helvetica font-normal text-black no-underline hover:underline" 
             style={menuLinkStyle('clamp(64px, 4.444vw, 85px)')}
           >
             О нас
           </Link>
-          <Link to="/#delivery" onClick={() => setMenuOpen(false)} className="font-['Helvetica'] font-normal text-black no-underline hover:underline" style={menuLinkStyle('clamp(94px, 6.528vw, 125px)')}>Доставка</Link>
-          <Link to="/#catalog" onClick={() => setMenuOpen(false)} className="font-['Helvetica'] font-normal text-black no-underline hover:underline" style={menuLinkStyle('clamp(154px, 10.694vw, 205px)')}>Печать</Link>
-          <Link to="/#faq" onClick={() => setMenuOpen(false)} className="font-['Helvetica'] font-normal text-black no-underline hover:underline" style={menuLinkStyle('clamp(184px, 12.778vw, 245px)')}>Частые вопросы</Link>
-          <Link to="/#contacts" onClick={() => setMenuOpen(false)} className="font-['Helvetica'] font-normal text-black no-underline hover:underline" style={menuLinkStyle('clamp(214px, 14.861vw, 285px)')}>Контакты</Link>
-          <Link to="/#constructor" onClick={() => setMenuOpen(false)} className="font-['Helvetica'] font-normal text-black no-underline hover:underline" style={menuLinkStyle('clamp(244px, 16.944vw, 325px)')}>Конструктор</Link>
+          <Link to="/#delivery" onClick={() => setMenuOpen(false)} className="font-helvetica font-normal text-black no-underline hover:underline" style={menuLinkStyle('clamp(94px, 6.528vw, 125px)')}>Доставка</Link>
+          <Link to="/#catalog" onClick={() => setMenuOpen(false)} className="font-helvetica font-normal text-black no-underline hover:underline" style={menuLinkStyle('clamp(154px, 10.694vw, 205px)')}>Печать</Link>
+          <Link to="/#reviews" onClick={() => setMenuOpen(false)} className="font-helvetica font-normal text-black no-underline hover:underline" style={menuLinkStyle('clamp(184px, 12.778vw, 245px)')}>Частые вопросы</Link>
+          <Link to="/#contacts" onClick={() => setMenuOpen(false)} className="font-helvetica font-normal text-black no-underline hover:underline" style={menuLinkStyle('clamp(214px, 14.861vw, 285px)')}>Контакты</Link>
+          <Link to="/#catalog" onClick={() => setMenuOpen(false)} className="font-helvetica font-normal text-black no-underline hover:underline" style={menuLinkStyle('clamp(244px, 16.944vw, 325px)')}>Конструктор</Link>
           <Link
             to="/designer-service"
             onClick={() => setMenuOpen(false)}
-            className="font-['Helvetica'] font-normal text-black no-underline hover:underline"
+            className="font-helvetica font-normal text-black no-underline hover:underline"
             style={menuLinkStyle('clamp(274px, 19.028vw, 365px)')}
           >
             Соберем журнал за вас

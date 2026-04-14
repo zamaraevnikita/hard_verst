@@ -1,4 +1,4 @@
-import { type FC, useEffect } from 'react';
+﻿import { type FC, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Hero from './components/Hero';
 import Catalog from './components/Catalog';
